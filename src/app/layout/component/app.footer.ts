@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     standalone: true,
     selector: 'app-footer',
     template: `<div class="layout-footer">
-        Powered by Rite
+        Designed and Developed by Rite Technologies
       </div>`
 })
 export class AppFooter {}

@@ -1,0 +1,112 @@
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.chat-wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.chat-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.chat-input-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 12px 16px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.chat-input-main {
+  width: 100%;
+  resize: none;
+  overflow-y: auto;              /* Enable scroll when max-height reached */
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.5;              /* 1.5 * 16px = 24px per line */
+  min-height: 25px;              /* Start at 1 line */
+  max-height: 288px;             /* 12 lines = 1.5*16*12 = 288px */
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+
+
+.chat-icons-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;              /* spacing between icons */
+  justify-content: flex-start;
+}
+
+.spacer {
+  flex-grow: 1;          /* this pushes the send button to the right */
+}
+
+.send-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-width: 40px;
+  min-height: 40px;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+.icon-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+   margin-right: 4px;
+  &:hover {
+    color: #000;
+  }
+}
+
+.option {
+  padding: 6px 12px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}

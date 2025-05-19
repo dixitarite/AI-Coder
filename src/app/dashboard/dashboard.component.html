@@ -1,0 +1,38 @@
+<div class="page-center">
+  <div class="chat-wrapper">
+    <!-- Title Centered Above -->
+    <div class="chat-title">What can I help with?</div>
+
+    <!-- Input & Actions Section -->
+    <div class="chat-input-section">
+      <div class="input-wrapper">
+        <!-- Input Field -->
+        <textarea
+  #chatInput
+  class="chat-input-main"
+  placeholder="Ask anything"
+  [(ngModel)]="message"
+  (input)="resizeTextarea()"
+  rows="1"
+></textarea>
+
+        <!-- Icons Below Input, Inside Box -->
+    <div class="chat-icons-row">
+  <button class="icon-button">
+    <i class="pi pi-plus"></i>
+  </button>
+
+  <button class="option">Completion</button>
+  <button class="option">Insertion</button>
+  <button class="option">Repository</button>
+
+  <span class="spacer"></span> <!-- Pushes send button right -->
+
+  <button class="send-button" (click)="onSendClick()">
+    <i class="pi pi-send"></i>
+  </button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>

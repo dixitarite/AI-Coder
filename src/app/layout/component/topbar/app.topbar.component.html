@@ -1,0 +1,105 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" #logoutConfirm>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton icon="pi pi-check" label="Yes" (click)="logoutConfirmed()" class="p-button-success"></button>
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="navigateToDashboardPage()" class="p-button-danger"></button>
+  </ng-template>
+  Are you sure you want to logout?
+</p-confirmDialog>
+<div class="layout-topbar">
+  <div class="layout-topbar-logo-container">
+    <button class="layout-menu-button layout-topbar-action" (click)="layoutService.onMenuToggle()">
+      <i class="pi pi-bars"></i>
+    </button>
+    <a class="layout-topbar-logo" routerLink="/generate">
+      <img src="assets/images/logo.png" alt="Logo" width="35" height="10" />
+      <span>AI CODER</span>
+    </a>
+  </div>
+
+  <div class="layout-topbar-actions">
+    <div class="logout-option">
+      <p-menu #menu [model]="items" [popup]="true" appendTo="body"></p-menu>
+      <button class="p-link layout-topbar-button" (click)="menu.toggle($event)">
+        <i class="pi pi-user" style="font-size: 1.5rem; vertical-align: middle;"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" #logoutConfirm>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton icon="pi pi-check" label="Yes" (click)="logoutConfirmed()" class="p-button-success"></button>
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="navigateToDashboardPage()" class="p-button-danger"></button>
+  </ng-template>
+  Are you sure you want to logout?
+</p-confirmDialog>
+
+<p-toast class="custom-toast" position="bottom-center"
+  [ngStyle]="{'position': 'fixed', 'bottom': '0', 'left': '50%', 'transform': 'translateX(-50%)', 'margin-bottom': '0.7rem'}">
+</p-toast>
+
+<p-dialog header="Change Password" [modal]="true" [(visible)]="visible"
+  [style]="{ width: '30rem' }" (onHide)="clearDialogFields()" [closable]="true" [resizable]="false">
+
+  <form class="change-password-form" (ngSubmit)="changePassword()">
+    <div class="p-fluid">
+      <div class="field flex align-items-center gap-3 mb-3">
+        <label for="oldpassword" class="field-label" style="flex: 0 0 35%;">Old Password</label>
+        <p-password
+          id="oldpassword"
+          [(ngModel)]="oldpassword"
+          name="oldpassword"
+          [feedback]="false"
+          [toggleMask]="true"
+          autocomplete="off"
+          required
+          #oldpasswordField="ngModel"
+          [ngStyle]="{ flex: '1' }">
+        </p-password>
+      </div>
+
+      <div class="field flex align-items-center gap-3 mb-3">
+        <label for="newpassword" class="field-label" style="flex: 0 0 35%;">New Password</label>
+        <p-password
+          id="newpassword"
+          [(ngModel)]="newpassword"
+          name="newpassword"
+          [toggleMask]="true"
+          autocomplete="off"
+          required
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          #newpasswordField="ngModel"
+          [ngStyle]="{ flex: '1' }">
+        </p-password>
+      </div>
+
+      <div class="field flex align-items-center gap-3 mb-3">
+        <label for="confirmedpass" class="field-label" style="flex: 0 0 35%;">Confirm Password</label>
+        <p-password
+          id="confirmedpass"
+          [(ngModel)]="confirmedpass"
+          name="confirmedpass"
+          [toggleMask]="true"
+          autocomplete="off"
+          required
+          #confirmpassField="ngModel"
+          [ngStyle]="{ flex: '1' }">
+        </p-password>
+      </div>
+
+      <div class="flex justify-content-end gap-3 mt-5">
+        <p-button label="Cancel" styleClass="p-button-text" (click)="clearDialogFields()"  [style]="{ 'color': '#0ea5e9' }"></p-button>
+        <p-button label="Save" styleClass="p-button-primary" type="submit"  [style]="{
+      'background-color': '#0ea5e9',
+      'border-color': '#0ea5e9',
+      'color': '#ffffff'
+    }"></p-button>
+      </div>
+    </div>
+  </form>
+</p-dialog>
+
+
+
+
+

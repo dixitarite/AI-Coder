@@ -1,0 +1,38 @@
+.layout-topbar {
+  background-color: var(--surface-d);
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+
+  &-logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 0.5rem;
+
+    svg {
+      height: 2rem;
+      width: auto;
+    }
+  }
+
+  .layout-menu-button {
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.25rem;
+
+    &:hover {
+      color: var(--primary-color-dark);
+    }
+  }
+}

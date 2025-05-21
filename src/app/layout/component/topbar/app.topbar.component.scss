@@ -1,10 +1,17 @@
 .layout-topbar {
-  background-color: var(--surface-d);
-  height: 3.5rem;
+  position: fixed;
+  height: 4rem;
+  z-index: 9999; /* increase to very high */
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 2rem;
+  background-color: var(--surface-card);
+  transition: left var(--layout-section-transition-duration);
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+
+
 
   &-logo-container {
     display: flex;

@@ -1,37 +1,63 @@
+<p-toast></p-toast>
+
 <div class="page-center">
   <div class="chat-wrapper">
-    <!-- Title Centered Above -->
     <div class="chat-title">What can I help with?</div>
 
-    <!-- Input & Actions Section -->
+    <div class="messages-container" #messagesContainer>
+      <div *ngFor="let msg of messages" [ngClass]="{'user-message': msg.from === 'user', 'bot-message': msg.from === 'bot'}" class="chat-message">
+        <pre>{{ msg.text }}</pre>
+      </div>
+      <div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
+    </div>
+
     <div class="chat-input-section">
       <div class="input-wrapper">
-        <!-- Input Field -->
         <textarea
-  #chatInput
-  class="chat-input-main"
-  placeholder="Ask anything"
-  [(ngModel)]="message"
-  (input)="resizeTextarea()"
-  rows="1"
-></textarea>
+          #chatInput
+          class="chat-input-main"
+          placeholder="Ask anything"
+          [(ngModel)]="message"
+          (input)="resizeTextarea()"
+          rows="1"
+        ></textarea>
 
-        <!-- Icons Below Input, Inside Box -->
-    <div class="chat-icons-row">
-  <button class="icon-button">
-    <i class="pi pi-plus"></i>
-  </button>
+        <div class="chat-icons-row">
+          <button class="icon-button">
+            <i class="pi pi-plus"></i>
+          </button>
 
-  <button class="option">Completion</button>
-  <button class="option">Insertion</button>
-  <button class="option">Repository</button>
+          <button
+            class="option"
+            [ngClass]="{ 'selected': selectedLabel === 'Completion' }"
+            (click)="selectLabel('Completion')"
+          >
+            Completion
+          </button>
+          <button
+            class="option"
+            [ngClass]="{ 'selected': selectedLabel === 'Insertion' }"
+            (click)="selectLabel('Insertion')"
+          >
+            Insertion
+          </button>
+          <button
+            class="option"
+            [ngClass]="{ 'selected': selectedLabel === 'Repository' }"
+            (click)="selectLabel('Repository')"
+          >
+            Repository
+          </button>
 
-  <span class="spacer"></span> <!-- Pushes send button right -->
+          <span class="spacer"></span>
 
-  <button class="send-button" (click)="onSendClick()">
-    <i class="pi pi-send"></i>
-  </button>
-</div>
+          <button class="send-button" (click)="onSendClick()">
+            <i class="pi pi-send"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -71,10 +71,9 @@ import { LayoutService } from '../service/layout.service';
 })
 export class AppMenuitem {
     @Input() item!: MenuItem;
-
     @Input() index!: number;
 
-    @Input() @HostBinding('class.layout-root-menuitem') root!: boolean;
+    @Input() @HostBinding('class.layout-root-menuitem') root: boolean = false;
 
     @Input() parentKey!: string;
 

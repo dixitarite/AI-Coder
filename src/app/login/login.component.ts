@@ -54,14 +54,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const savedUsername = localStorage.getItem('rememberedUsername');
-    const savedPassword = localStorage.getItem('rememberedPassword');
-
-    if (savedUsername && savedPassword) {
-      this.username = savedUsername;
-      this.password = savedPassword;
-      this.checked = true;
-    }
+    
   }
 
   login() {
@@ -70,20 +63,13 @@ export class LoginComponent implements OnInit {
         if (res.code === 200) {
           localStorage.setItem('token', res.data.token);
 
-          if (this.checked) {
-            localStorage.setItem('rememberedUsername', this.username);
-            localStorage.setItem('rememberedPassword', this.password);
-          } else {
-            localStorage.removeItem('rememberedUsername');
-            localStorage.removeItem('rememberedPassword');
-          }
-
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
             detail: 'Login successful'
           });
           localStorage.setItem("username", this.username);
+          localStorage.setItem("user_id", res.data.user_id);
           this.router.navigate(['/generate']);
 
 

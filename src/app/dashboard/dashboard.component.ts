@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { environment } from '../../environments/environment';
 
 interface ChatMessage {
   from: 'user' | 'bot';
@@ -100,8 +101,8 @@ export class DashboardComponent implements AfterViewChecked {
       });
       return;
     }
-
-    const url = `http://192.168.0.85:8080/${endpoint}`;
+    
+    const url = `${environment.generateUrl}/${endpoint}`;
     const body = {
       prompt,
       chat_id,
